@@ -3,10 +3,10 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
   // add storage {} and counter to someInstance {} so that they can be accessed from outside using this
 
-var someInstance = {
-  storage : {},
-  counter : 0  
-};
+var someInstance = {};
+ someInstance.storage = {};
+ someInstance.counter = 0;  
+
 
 // extend some instance with our stackMethods
 _.extend(someInstance, stackMethods);
@@ -14,6 +14,7 @@ _.extend(someInstance, stackMethods);
 
 // return someInstance to our stack function
 return someInstance;
+
 };
 
 //  create our methods object
@@ -26,17 +27,16 @@ var stackMethods = {};
     this.storage[this.counter++] = value;
   };
 
-
   stackMethods.pop = function(){
   this.counter--;
   if(this.counter <= 0){
     this.counter = 0;
+
   }
   return this.storage[this.counter];
   };
 
   stackMethods.size = function(value){
-    
   return this.counter;
   };
 
