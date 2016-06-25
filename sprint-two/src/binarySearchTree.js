@@ -1,7 +1,13 @@
 var BinarySearchTree = function(value){
-  
-    
-  
+  function insert(input){
+
+  }  
+  function contains(input){
+
+  }
+  function depthFirstLog(input){
+
+  }
 };
 
 
