@@ -30,7 +30,7 @@ HashTable.prototype.remove = function(k){
     // console.log(this._storage[i]);
   };
 }; 
-console.log(this._storage)
+
 
 
 /*

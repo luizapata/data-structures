@@ -1,4 +1,4 @@
-var Tree = function(value){
+  var Tree = function(value){
   var newTree = {};
   newTree.value = value;
   // your code here
