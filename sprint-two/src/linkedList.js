@@ -3,35 +3,43 @@ var LinkedList = function(){
   list.head = null;
   list.tail = null;
 
-// add to tail adds the passed in argument as a value to the tail key in our list object
-
   list.addToTail = function(value){
-    //adds an object to list. tail by invoking node. 
-    list.tail = Node(value);
-    // checks if there is a head. If not, assign tail to head.
-    if(!list.head){
-      list.head = list.tail;
+    var newTail = Node(value);
+
+    if (!list.head) {
+      list.head = newTail;
     }
+
+    if (list.tail) {
+      list.tail.next = newTail;
+    }
+
+    list.tail = newTail;
   };
 
-
   list.removeHead = function(){
-    // saves the value of head into a variable.
-    var former = list.head.value;
-    // moves tail to head.
-    list.head = list.tail;
-    // returns former head.
-    return former;
+
+    if (list.head === null){
+      return null;
+    }
+
+    var currentHead = list.head;
+    list.head = list.head.next;
+
+    return currentHead.value;
   };
 
   list.contains = function(target){
-    // check if the value of head or tail matches target if so return true else return false.
-    if(list.head.value === target || list.tail.value === target){
-      return true;
-    };
-    return false
+    var node =  list.head;
+    while(node){
+      if(node.value === target){
+        return true;
+      }
+      node = node.next;
+    }
+    return false;
   };
-  // return list
+
   return list;
 };
 
@@ -43,6 +51,10 @@ var Node = function(value){
 
   return node;
 };
+
+var test = LinkedList();
+test.addToTail(4);
+test.addToTail(6)
 
 /*
  * Complexity: What is the time complexity of the above functions?

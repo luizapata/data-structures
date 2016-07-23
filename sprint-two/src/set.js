@@ -14,7 +14,7 @@ setPrototype.add = function(item){
 setPrototype.contains = function(item){
   var flag = false;
   _.each(this.storage, function(val, key, col){
-    console.log(val);
+    // console.log(val);
     if(val === item){
       flag = true;
     }
@@ -24,7 +24,7 @@ setPrototype.contains = function(item){
 
 setPrototype.remove = function(item){
     _.each(this.storage, function(val, key, col){
-    console.log(val);
+    // console.log(val);
     if(val === item){
       delete  col[key];
     }

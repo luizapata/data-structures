@@ -1,38 +1,40 @@
-  var Tree = function(value){
+var Tree = function(value){
   var newTree = {};
   newTree.value = value;
-  // your code here
-  newTree.children = {}; 
-  newTree.counter = 0;
-  _.extend(newTree, treeMethods);
+
+  newTree.children = [];
+  _.extend(newTree, treeMethods)
   return newTree;
 };
+
 
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
+  this.children.push(new Tree(value))
 
-  this.children[this.counter++] = new Tree(value);
 };
 
 treeMethods.contains = function(target){
-  var flag = false;
-  function idk(child){
-    _.each(child, function(obj, key){
-      if(obj.value === target){
-        flag = true;
-        }
-      idk(obj.children);
-    });
+  var found = false;
+
+  var checksTarget = function(node){
+    if(node.value === target){
+      found = true;
+      return;
+    }
+    for (var i = 0; i < node.children.length; i++) {
+      var child = node.children[i];
+      checksTarget(child);
+    }
   }
-  idk(this.children);
-  console.log(flag);
-  return flag;
+checksTarget(this)
+return found;
 };
 
 
 
 
-
-
-
+/*
+ * Complexity: What is the time complexity of the above functions?
+ */

@@ -10,7 +10,7 @@ HashTable.prototype.insert = function(k, v){
     this._storage[i] = {};
   }
   this._storage[i][k] = v;
-  console.log(this._storage)
+  // console.log(this._storage)
 };
 
 HashTable.prototype.retrieve = function(k){

@@ -3,6 +3,7 @@ describe('graph', function() {
 
   beforeEach(function() {
     graph = new Graph();
+    // console.dir(graph)
   });
 
   it('should have methods named "addNode", "contains", "removeNode", "addEdge", "hasEdge", "removeEdge" and "forEachNode"', function() {
